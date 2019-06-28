@@ -4,7 +4,7 @@ An Example of building a web framework using Typescript.
 
 ### Features:
 
-- Inheritance a
+- Inheritance
 - Composition
 - Interfaces
 - Generics
