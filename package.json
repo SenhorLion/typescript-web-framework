@@ -1,0 +1,17 @@
+{
+  "name": "typescript-web-framework",
+  "description": "An Example of building a web framework using Typescript.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^3.5.2"
+  }
+}
