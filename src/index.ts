@@ -2,10 +2,12 @@ import { User } from './models/User';
 
 const user = new User({ name: 'Ziggy', age: 42 });
 
-console.log(`User name: ${user.get('name')}`);
-console.log(`User age: ${user.get('age')}`);
+user.on('change', () => console.log('change callbacked'));
+user.on('click', () => console.log('clicked callbacked'));
+user.on('click', () => console.log('clicked again callbacked'));
 
-user.set({ name: 'Zowy' });
+console.log({ user });
 
-console.log(`User name: ${user.get('name')}`);
-console.log(`User age: ${user.get('age')}`);
+user.trigger('click');
+user.trigger('change');
+user.trigger('chalwnjlbnewjlfbnerwjlbnge');
