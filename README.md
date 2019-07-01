@@ -17,6 +17,7 @@ An Example of building a web framework using Typescript.
 - Node
 - Typescript
 - Parcel
+- JSON-server (for developing)
 
 ### Usage:
 
