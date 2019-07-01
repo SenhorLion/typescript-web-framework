@@ -1,9 +1,17 @@
+import axios, { AxiosResponse } from 'axios';
+
 interface UserProps {
+  id?: number;
   name?: string;
   age?: number;
 }
 
 type Callback = () => void;
+
+const SERVER_API: string = 'http://localhost:3000';
+const ENDPOINT = {
+  USERS: 'users',
+};
 
 export class User {
   events: { [key: string]: Callback[] } = {};
@@ -58,5 +66,31 @@ export class User {
     }
 
     handlers.forEach(callback => callback());
+  }
+
+  // TODO: User::fetch - return Promise object
+  fetch(): void {
+    axios.get(`${SERVER_API}/${ENDPOINT.USERS}/${this.get('id')}`).then(
+      (response: AxiosResponse): void => {
+        console.log('User is', response.data);
+
+        this.set(response.data);
+      },
+    );
+  }
+
+  save(): void {
+    const id = this.get('id');
+
+    if (id) {
+      console.log('save with id');
+      // put
+      // axios.put(`http://localhost:3000/users/${id}`, this.data);
+      axios.put(`${SERVER_API}/${ENDPOINT.USERS}/${id}`, this.data);
+    } else {
+      //post
+      console.log('save new record');
+      axios.post(`${SERVER_API}/${ENDPOINT.USERS}`, this.data);
+    }
   }
 }

@@ -1,13 +1,18 @@
+import axios from 'axios';
 import { User } from './models/User';
 
-const user = new User({ name: 'Ziggy', age: 42 });
+// testing user creation and saving
+const user = new User({ id: 3 });
 
-user.on('change', () => console.log('change callbacked'));
-user.on('click', () => console.log('clicked callbacked'));
-user.on('click', () => console.log('clicked again callbacked'));
+// test updating existing user
+// user.set({ name: 'Lorem ipsom', age: 404 });
+// user.save();
+user.fetch();
 
 console.log({ user });
+// test saving a new (non existing) user
+const newUser = new User({ name: 'A New record', age: 33 });
+newUser.save();
+newUser.fetch();
 
-user.trigger('click');
-user.trigger('change');
-user.trigger('chalwnjlbnewjlfbnerwjlbnge');
+console.log({ newUser });
