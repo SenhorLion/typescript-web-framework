@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "I AM ONE"
+    },
+    {
+      "name": "Dooba",
+      "age": 404,
+      "id": 2
+    },
+    {
+      "name": "Zooba",
+      "age": 21,
+      "id": 3
+    },
+    {
+      "name": "Zorro",
+      "age": 7,
+      "id": 4
+    }
+  ]
+}
