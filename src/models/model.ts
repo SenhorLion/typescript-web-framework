@@ -23,9 +23,11 @@ interface IHasId {
 export class Model<T extends IHasId> {
   constructor(private attributes: IModelAttributes<T>, private events: IEvents, private sync: ISync<T>) {}
 
-  get on() {
-    return this.events.on;
-  }
+  // get on() {
+  //   return this.events.on;
+  // }
+
+  on = this.events.on;
 
   /**
    * Trigger the event for eventName if found
@@ -36,23 +38,27 @@ export class Model<T extends IHasId> {
   // trigger(eventName: string) {
   //   this.events.trigger(eventName);
   // }
-  get trigger() {
-    return this.events.trigger;
-  }
+  // get trigger() {
+  //   return this.events.trigger;
+  // }
+  trigger = this.events.trigger;
 
-  get get() {
-    return this.attributes.get;
-  }
+  // get get() {
+  //   return this.attributes.get;
+  // }
+  get = this.attributes.get;
 
   set(update: T): void {
     this.attributes.set(update);
-    this.events.trigger('change');
+    this.events.trigger('update');
   }
 
   fetch(): void {
     console.log('@FETCH ');
 
-    const id = this.attributes.get('id');
+    const id = this.get('id');
+    // const id = this.attributes.get('id');
+
     // NB: this.get('id') doesnt work here? Dont know why??
     // so we have to use the attributes.get method directly
 
