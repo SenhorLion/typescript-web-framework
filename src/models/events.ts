@@ -9,13 +9,13 @@ export class EventListener {
    * @param {String} eventName
    * @param {Callback} callback
    */
-  on(eventName: string, callback: Callback) {
+  on = (eventName: string, callback: Callback) => {
     const handlers = this.events[eventName] || [];
 
     handlers.push(callback);
 
     this.events[eventName] = handlers;
-  }
+  };
 
   /**
    * Trigger the event for eventName if found
@@ -23,7 +23,7 @@ export class EventListener {
    * @param {string} eventName
    * @return void
    */
-  trigger(eventName: string) {
+  trigger = (eventName: string) => {
     const handlers = this.events[eventName];
 
     if (!handlers || handlers.length === 0) {
@@ -32,5 +32,5 @@ export class EventListener {
     }
 
     handlers.forEach((callback) => callback());
-  }
+  };
 }

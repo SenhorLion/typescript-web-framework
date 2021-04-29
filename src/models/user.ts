@@ -1,4 +1,3 @@
-import { IUserProps } from './user';
 import { Collection } from './collection';
 import { EventListener } from './events';
 import { Sync } from './sync';

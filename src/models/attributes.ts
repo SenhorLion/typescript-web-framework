@@ -7,9 +7,9 @@ export class Attributes<T> {
    * @param {string} key
    * @return {T[K]}
    */
-  get<K extends keyof T>(key: K): T[K] {
+  get = <K extends keyof T>(key: K): T[K] => {
     return this.data[key];
-  }
+  };
 
   /**
    * Update a set of data
@@ -17,11 +17,17 @@ export class Attributes<T> {
    * @param {T} update
    * @return void
    */
-  set(value: T): void {
+  set = (value: T): void => {
     Object.assign(this.data, value);
-  }
+  };
+  // set(value: T): void {
+  //   Object.assign(this.data, value);
+  // }
 
-  getAll(): T {
+  getAll = (): T => {
     return this.data;
-  }
+  };
+  // getAll(): T {
+  //   return this.data;
+  // }
 }
